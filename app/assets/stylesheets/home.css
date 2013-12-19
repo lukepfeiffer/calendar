@@ -1,0 +1,22 @@
+h1{
+  text-align: center;
+  font-family: arial;
+  font-size: 50px;
+}
+
+form{
+  text-align: center;
+}
+
+.submit{
+  font-size: 18px;
+  font-family: arial;
+  border-radius: 5px;
+}
+
+.field{
+  border-radius: 6px;
+  font-size: 21px;
+  font-family: arial;
+  border: solid gray 1px;
+}
