@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
   def home
-    @days = ["monday", "tuesday" , "wednessday" , "thursday"]
+    @user = User.new
   end
 end
