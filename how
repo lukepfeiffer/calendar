@@ -1,0 +1,87 @@
+[33mcommit 6fceed69d3528f25edb2394bf0630bb1f5255d4b[m
+Author: Hashrocket Workstation <dev@hashrocket.com>
+Date:   Thu Jan 2 18:44:04 2014 -0500
+
+    User signs in
+
+[1mdiff --git a/app/controllers/application_controller.rb b/app/controllers/application_controller.rb[m
+[1mindex d83690e..5d13db2 100644[m
+[1m--- a/app/controllers/application_controller.rb[m
+[1m+++ b/app/controllers/application_controller.rb[m
+[36m@@ -1,5 +1,4 @@[m
+ class ApplicationController < ActionController::Base[m
+[31m-  # Prevent CSRF attacks by raising an exception.[m
+[31m-  # For APIs, you may want to use :null_session instead.[m
+[32m+[m[32m  include Authem::ControllerSupport[m
+   protect_from_forgery with: :exception[m
+ end[m
+[1mdiff --git a/app/controllers/sessions_controller.rb b/app/controllers/sessions_controller.rb[m
+[1mindex 16d11b5..680fa37 100644[m
+[1m--- a/app/controllers/sessions_controller.rb[m
+[1m+++ b/app/controllers/sessions_controller.rb[m
+[36m@@ -1,2 +1,13 @@[m
+ class SessionsController < ApplicationController[m
+[32m+[m[32m  def create[m
+[32m+[m
+[32m+[m[32m    user = User.find_by(email: params[:email])[m
+[32m+[m[32m    if user.present? && user.authenticate(params[:password])[m
+[32m+[m[32m      sign_in(user)[m
+[32m+[m[32m      redirect_to calendar_path[m
+[32m+[m[32m    else[m
+[32m+[m[32m      redirect_to root_path[m
+[32m+[m
+[32m+[m[32m    end[m
+[32m+[m[32m  end[m
+ end[m
+[1mdiff --git a/app/views/pages/calendar.html.erb b/app/views/pages/calendar.html.erb[m
+[1mindex e69de29..81392b5 100644[m
+[1m--- a/app/views/pages/calendar.html.erb[m
+[1m+++ b/app/views/pages/calendar.html.erb[m
+[36m@@ -0,0 +1 @@[m
+[32m+[m[32m<h2> Your Calendar </h2>[m
+[1mdiff --git a/app/views/pages/home.html.erb b/app/views/pages/home.html.erb[m
+[1mindex e10d909..b926898 100644[m
+[1m--- a/app/views/pages/home.html.erb[m
+[1m+++ b/app/views/pages/home.html.erb[m
+[36m@@ -1,12 +1,15 @@[m
+   <%= form_for(@user) do |f| %>[m
+[32m+[m
+     <h1> Sign Up </h1>[m
+     <%= f.text_field :email ,  placeholder: "Email" , class: "field" %>[m
+     <%= f.password_field :password , placeholder: "Password" ,class: "field"  %>[m
+     <%= f.password_field :password_confirmation ,  placeholder: "Password Confirmation" , class: "field" %>[m
+     <%= f.submit :submit , class: "submit" %>[m
+[32m+[m
+   <% end %>[m
+ [m
+   <%= form_tag(sessions_path) do %>[m
+[32m+[m
+     <h1> Sign In </h1>[m
+     <%= text_field_tag :email , nil ,placeholder: "Email" , class: "field" %>[m
+     <%= password_field_tag :password , nil , placeholder: "Password" ,class: "field"  %>[m
+[1mdiff --git a/db/migrate/20131219230949_create_users.rb b/db/migrate/20131219230949_create_users.rb[m
+[1mindex e61f14b..3b8ebf3 100644[m
+[1m--- a/db/migrate/20131219230949_create_users.rb[m
+[1m+++ b/db/migrate/20131219230949_create_users.rb[m
+[36m@@ -3,7 +3,7 @@[m [mclass CreateUsers < ActiveRecord::Migration[m
+     create_table :users do |t|[m
+       t.string :email[m
+       t.string :password_digest[m
+[31m-      t.string :remember_tokem[m
+[32m+[m[32m      t.string :remember_token[m
+       t.string :reset_password_token[m
+       t.string :session_token[m
+       t.timestamps[m
+[1mdiff --git a/db/schema.rb b/db/schema.rb[m
+[1mindex 49438db..986f508 100644[m
+[1m--- a/db/schema.rb[m
+[1m+++ b/db/schema.rb[m
+[36m@@ -16,7 +16,7 @@[m [mActiveRecord::Schema.define(version: 20131219230949) do[m
+   create_table "users", force: true do |t|[m
+     t.string   "email"[m
+     t.string   "password_digest"[m
+[31m-    t.string   "remember_tokem"[m
+[32m+[m[32m    t.string   "remember_token"[m
+     t.string   "reset_password_token"[m
+     t.string   "session_token"[m
+     t.datetime "created_at"[m

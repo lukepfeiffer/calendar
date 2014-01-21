@@ -1,1 +1,14 @@
 <h2> Your Calendar </h2>
+<table>
+    <% 
+    month =  Month.new(Date.today)
+    month.weeks.each do |week|
+      "<tr>"
+      week.days.each do |day|
+        "<td>"
+
+        "</td>"
+      end
+      "</tr>"
+    end
+  %>
