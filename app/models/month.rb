@@ -1,29 +1,35 @@
 class Month
 
-  attr_reader :beginning
+  attr_reader :beginning_date, :end_date
 
   def initialize(date)
-    @beginning = date.beginning_of_month.beginning_of_week
+    @beginning_date = date.beginning_of_month.beginning_of_week.to_date
+    @end_date = date.end_of_month.end_of_week.to_date
   end
 
   def weeks
-    [ Week.new(beginning) ]
+    [].tap do |weeks|
+      weeks_count.times do |week_number|
+        weeks << Week.new(beginning_date + ((week_number + 1) * 7))
+      end
+    end
+  end
+
+  def weeks_count
+    (end_date - beginning_date).to_i / 7
   end
 end
 
 class Week
-  attr_reader :beginning
-  attr_reader :date
+  attr_reader :beginning_date, :end_date
 
   def initialize(date)
-    @date = date
-    @beginnning = date.beginning_of_week
+    @beginning_date = date.beginning_of_week
+    @end_date = date.end_of_week
   end
 
   def days
-    beginning..beginning.at_end_of_week.to_a.map do |day|
-      Date.new(day)
-    end
+    (beginning_date..end_date).to_a
   end
 end
 
