@@ -10,5 +10,6 @@ class UsersController < ApplicationController
       :password ,
       :password_confirmation
     )
+
   end
 end

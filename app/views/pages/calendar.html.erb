@@ -1,14 +1,24 @@
 <h2> Your Calendar </h2>
+
+<table id = 'day_names'>
+    <th> Sun </th>
+    <th> Mon </th>
+    <th> Tues </th>
+    <th> Wed </th>
+    <th> Thurs </th>
+    <th> Fri </th>
+    <th> Sat </th>
+
+</table>
+
 <table>
-    <% 
-    month =  Month.new(Date.today)
-    month.weeks.each do |week|
-      "<tr>"
-      week.days.each do |day|
-        "<td>"
-          day
-        "</td>"
-      end
-      "</tr>"
-    end
-  %>
+ 
+    <% month =  Month.new(Date.today)
+    month.weeks.each do |week| %>
+      <tr>
+        <% week.days.each do |day| %>
+          <td> <%= day.to_s %> </td>
+        <% end %>
+      </tr>
+    <% end %>
+</table>
