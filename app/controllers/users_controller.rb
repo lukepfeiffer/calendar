@@ -1,8 +1,13 @@
 class UsersController < ApplicationController
   def create
-    User.create(user_params)
-    redirect_to calendar_path
-  end
+    @user = User.new(user_params)
+    if @user.valid?
+      @user.save
+      redirect_to calendar_path
+    else
+      redirect_to root_path
+    end
+ end
 
   def user_params
     params.require(:user).permit(
@@ -10,6 +15,5 @@ class UsersController < ApplicationController
       :password ,
       :password_confirmation
     )
-
   end
 end

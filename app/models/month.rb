@@ -10,13 +10,13 @@ class Month
   def weeks
     [].tap do |weeks|
       weeks_count.times do |week_number|
-        weeks << Week.new(beginning_date + ((week_number + 1) * 7))
+        weeks << Week.new(beginning_date + ((week_number) * 7))
       end
     end
   end
 
   def weeks_count
-    (end_date - beginning_date).to_i / 7
+    (end_date - beginning_date) > 29 ? 5:4
   end
 end
 
