@@ -1,4 +1,9 @@
 <h2> Your Calendar </h2>
+<h3>  Date: <%= @month.beginning_date.to_s %> - <%= @month.end_date.to_s %> </h3>
+
+<a> Previous Month </a>
+<a> Current Month </a>
+<a> Next Month </a>
 
 <table id = 'day_names'>
     <th> Sun </th>
@@ -8,16 +13,21 @@
     <th> Thurs </th>
     <th> Fri </th>
     <th> Sat </th>
-
 </table>
 
 <table>
- 
-    <% month =  Month.new(Date.today)
-    month.weeks.each do |week| %>
+
+    <% @month.weeks.each do |week| %>
       <tr>
         <% week.days.each do |day| %>
-          <td> <%= day.to_s %> </td>
+            <% if day == Date.today %>
+               <td class = 'active'>
+            <% else %>
+                <td>
+            <% end %>
+            <%= day.to_s %>
+            <a> Edit Day </a>
+          </td>
         <% end %>
       </tr>
     <% end %>

@@ -9,8 +9,17 @@ table{
 td{
   border: 1px solid black;
   padding: 50px;
+  font-family: arial;
+  font-size: 15px;
+}
+
+a{
+  font-size: 10px;
+  text-decoration: underline;
+  color: #145ECC; 
+  padding: 30px;
+  cursor: pointer;
   vertical-align: top;
-  text-align: left;
 }
 
 th{
@@ -40,4 +49,8 @@ form{
   font-size: 21px;
   font-family: arial;
   border: solid gray 1px;
+}
+
+.active{
+   background: #dedede;
 }
