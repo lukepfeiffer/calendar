@@ -3,10 +3,13 @@ class PagesController < ApplicationController
     @user = User.new
   end
 
+
   def calendar
     @active_month = active_day.month
     @active_day = active_day
     @month =  Month.new(@active_day)
+    @next_month = @active_day.next_month
+    @previous_month = @active_day.prev_month
   end
 
   def active_day
