@@ -54,3 +54,12 @@ form{
 .active{
    background: #dedede;
 }
+
+.rate{
+  border-radius: 6px;
+  font-size: 15px;
+  font-family: arial;
+  border: solid gray 1px;
+  width: 88px;
+  height: 25px;
+}

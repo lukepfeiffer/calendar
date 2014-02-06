@@ -1,0 +1,10 @@
+<h2> New Day </h2>
+
+<%= form_for(@day) do |f| %>
+
+  <%= f.number_field(:rate, in: 1..10, placeholder: 'Rate Day', class: 'rate') %>
+  <%= f.text_field(:event, placeholder:  'Event Title', class: 'field') %>
+  <%= f.text_field(:event, placeholder: 'Event Description', class: 'field') %>
+  <%= f.submit 'Submit', class: 'submit' %>
+
+<% end %>
