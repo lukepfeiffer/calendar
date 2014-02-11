@@ -1,7 +1,7 @@
 Calendar::Application.routes.draw do
    root 'pages#home'
    resources :users
+   resources :calendar_days
    get '/calendar', to: 'pages#calendar'
-   get '/day', to: 'days#new'
    post 'sessions', to: 'sessions#create'
 end
