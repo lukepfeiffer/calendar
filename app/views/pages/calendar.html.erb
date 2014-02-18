@@ -20,12 +20,18 @@
     <% @month.weeks.each do |week| %>
       <tr>
         <% week.days.each do |day| %>
-            <% if day == Date.today %>
-               <td class = 'active'>
-            <% else %>
-                <td>
-            <% end %>
+            <%- events = CalendarDay.where(:event_date => day) %>
+          <td>
             <%= day.to_s %>
+            <ul>
+                <%- events.each do |event| %>
+                    <li>
+                        <%= event.title %>
+                        <%= event.rate %>
+                        <%= link_to 'X', calendar_day_path(event.id), method: :delete %>
+                    </li>
+                <% end %>
+            </ul>
             <%= link_to 'Edit Day', edit_calendar_day_path(day) %>
           </td>
         <% end %>
