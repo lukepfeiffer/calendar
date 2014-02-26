@@ -12,6 +12,20 @@ body{
   color: #1ae0e0;
 }
 
+.sign_out{
+  color: #fff;
+  background-color: #083bf9;
+  font-size: 25px;
+  text-align: center;
+  text-decoration: none;
+  border: 1px solid #6081FA;
+  border-radius: 3px;
+  margin: 0 0 10px 0;
+  padding: 0 3px;
+  float: right;
+  cursor: pointer;
+}
+
 table{
   width: 100%;
   height: 100%;
@@ -27,8 +41,8 @@ td{
   font-size: 15px;
 }
 
-a{
-  font-size: 10px;
+.month{
+  font-size: 15px;
   text-decoration: underline;
   color: #145ECC;
   padding: 30px;
@@ -40,6 +54,10 @@ th{
   width: 7%;
   font-weight: normal;
   font-family: arial;
+}
+
+li{
+  cursor: pointer
 }
 
 h1{
@@ -95,8 +113,10 @@ form{
 }
 
 .delete{
+  color: #d70500
 }
 
 .edit_day{
   padding: 0;
+  font-size: 11px;
 }

@@ -28,5 +28,4 @@ class PagesController < ApplicationController
   def month
     params[:month] || Date.today.month
   end
-
 end

@@ -1,9 +1,10 @@
 <h2> Your Calendar </h2>
 <h3> Date: <%= @month.beginning_date.to_s %> - <%= @month.end_date.to_s %> </h3>
 
-<%= link_to 'Previous Month', calendar_path(:month => @previous_month.month, :year => @previous_month.year) %>
-<%= link_to 'Current Month', calendar_path %>
-<%= link_to 'Next Month', calendar_path(:month => @next_month.month , :year => @next_month.year)   %>
+<%= link_to 'Previous Month', calendar_path(:month => @previous_month.month, :year => @previous_month.year), class: 'month'%>
+<%= link_to 'Current Month', calendar_path, class: 'month' %>
+<%= link_to 'Next Month', calendar_path(:month => @next_month.month , :year => @next_month.year), class: 'month'   %>
+<%= link_to 'Sign Out', root_path, class: 'sign_out' %>
 
 <table id = 'day_names'>
     <th> Mon </th>
@@ -26,7 +27,7 @@
             <ul>
                 <%- events.each do |event| %>
                     <li>
-                        <%= event.title %>
+                        <%= link_to event.title, description_path(event.id) %>
                         <%= event.rate %>
                         <%= link_to 'X', calendar_day_path(event.id), method: :delete, class: 'delete' %>
                     </li>
