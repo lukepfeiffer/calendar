@@ -13,16 +13,16 @@ class CalendarDaysController < ApplicationController
    if @calendar_day.save
      redirect_to calendar_path
    else
-     redirect_to calendar_day_path
+     redirect_to calendar_days_path
    end
   end
 
   def create
-   @calendar_day =  CalendarDay.new(calendar_day_params)
+   @calendar_day =  current_user.calendar_days.new(calendar_day_params)
    if @calendar_day.save
      redirect_to calendar_path
    else
-     redirect_to calendar_day_path
+     render 'calendar_days/edit'
    end
   end
 

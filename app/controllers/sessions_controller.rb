@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
       redirect_to calendar_path
     else
       redirect_to root_path
-
     end
+
   end
 end

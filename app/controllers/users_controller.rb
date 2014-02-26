@@ -1,11 +1,10 @@
 class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
-    if @user.valid?
-      @user.save
+    if @user.save
       redirect_to calendar_path
     else
-      redirect_to root_path
+      render 'pages/home'
     end
  end
 

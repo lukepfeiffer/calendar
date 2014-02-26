@@ -1,3 +1,17 @@
+body{
+  background-color: #ccc;
+}
+
+#main{
+  display: block;
+  width: 50%
+  margin: 0 auto;
+}
+
+.field_with_errors{
+  color: #1ae0e0;
+}
+
 table{
   width: 100%;
   height: 100%;
@@ -16,7 +30,7 @@ td{
 a{
   font-size: 10px;
   text-decoration: underline;
-  color: #145ECC; 
+  color: #145ECC;
   padding: 30px;
   cursor: pointer;
   vertical-align: top;
@@ -29,19 +43,33 @@ th{
 }
 
 h1{
-  text-align: center;
   font-family: arial;
   font-size: 50px;
+  padding-left: 20px;
+}
+
+h2{
+  padding:0 0 0 20px;
 }
 
 form{
-  text-align: center;
+  padding-left: 20px;
+}
+
+.form_container{
+  margin: 10px;
+  border: 1px solid #6c7171;
+  border-radius: 7px;
+  background: url('/assets/Calendar.jpg') no-repeat;
+  width: 50%;
 }
 
 .submit{
   font-size: 18px;
   font-family: arial;
   border-radius: 5px;
+  cursor: pointer;
+  display: list-item;
 }
 
 .field{
@@ -49,17 +77,26 @@ form{
   font-size: 21px;
   font-family: arial;
   border: solid gray 1px;
+  display: list-item;
+  padding: 5px;
 }
 
 .active{
-   background: #dedede;
+  background: #888;
 }
 
 .rate{
   border-radius: 6px;
-  font-size: 15px;
+  font-size: 21px;
   font-family: arial;
   border: solid gray 1px;
-  width: 88px;
-  height: 25px;
+  width: 110px;
+  height: 31px;
+}
+
+.delete{
+}
+
+.edit_day{
+  padding: 0;
 }

@@ -20,19 +20,19 @@
     <% @month.weeks.each do |week| %>
       <tr>
         <% week.days.each do |day| %>
-            <%- events = CalendarDay.where(:event_date => day) %>
-          <td>
+            <%- events = @current_user.calendar_days.where(:event_date => day) %>
+            <td class = <%= active_day?(day)%>>
             <%= day.to_s %>
             <ul>
                 <%- events.each do |event| %>
                     <li>
                         <%= event.title %>
                         <%= event.rate %>
-                        <%= link_to 'X', calendar_day_path(event.id), method: :delete %>
+                        <%= link_to 'X', calendar_day_path(event.id), method: :delete, class: 'delete' %>
                     </li>
                 <% end %>
             </ul>
-            <%= link_to 'Edit Day', edit_calendar_day_path(day) %>
+            <%= link_to 'Edit Day', edit_calendar_day_path(day), class: 'edit_day'%>
           </td>
         <% end %>
       </tr>

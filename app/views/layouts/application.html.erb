@@ -3,18 +3,17 @@
 <head>
   <%= stylesheet_link_tag "application", media: "all" %>
   <%= javascript_include_tag "application", media: "all" %>
-</head>
   <title> Happy Calendar</title>
   <%= csrf_meta_tags %>
-
-  <h1>
-    Happy Calendar
-  </h1>
-
 </head>
+
+
 <body>
-
-<%= yield %>
-
+  <div id= 'main'>
+    <h1>
+      Happy Calendar
+    </h1>
+  <%= yield %>
+  </div>
 </body>
 </html>

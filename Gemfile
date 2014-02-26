@@ -11,6 +11,7 @@ gem 'jquery-rails'
 gem 'haml'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
+gem 'formal'
 
 group :doc do
   gem 'sdoc', require: false
