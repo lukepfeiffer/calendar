@@ -3,6 +3,6 @@ Calendar::Application.routes.draw do
    resources :users
    resources :calendar_days
    get '/calendar', to: 'pages#calendar'
-   get '/description', to: 'calendar_day#description'
+   get '/calendar_day', to: 'calendar_days#description'
    post 'sessions', to: 'sessions#create'
 end

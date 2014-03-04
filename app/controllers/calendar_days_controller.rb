@@ -3,6 +3,10 @@ class CalendarDaysController < ApplicationController
     @calendar_day = find_calendar_day
   end
 
+  def show
+    @calendar_day = CalendarDay.find(params[:id])
+  end
+
   def destroy
     CalendarDay.find(params[:id]).destroy
     redirect_to calendar_path
@@ -18,7 +22,7 @@ class CalendarDaysController < ApplicationController
   end
 
   def create
-   @calendar_day =  current_user.calendar_days.new(calendar_day_params)
+   @calendar_day =  current_user.calendar_days.build(calendar_day_params)
    if @calendar_day.save
      redirect_to calendar_path
    else

@@ -26,8 +26,8 @@
             <%= day.to_s %>
             <ul>
                 <%- events.each do |event| %>
-                    <li>
-                        <%= link_to event.title, description_path(event.id) %>
+                    <li class = <%= rated(event.rate) %>>
+                        <%= link_to event.title, calendar_day_path(event.id), id: 'title' %>
                         <%= event.rate %>
                         <%= link_to 'X', calendar_day_path(event.id), method: :delete, class: 'delete' %>
                     </li>

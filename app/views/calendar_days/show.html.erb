@@ -1,0 +1,11 @@
+<form class = 'show_page'>
+  <h1 class = 'show <%= rated(@calendar_day.rate)%>'>
+    <%= @calendar_day.title %>
+    <%= @calendar_day.rate %>
+  </h1>
+
+  <h2 class = 'description'>
+    <%= @calendar_day.description %>
+  </h2>
+    <%= link_to 'Return to Calendar', calendar_path, class: 'description' %>
+</form
