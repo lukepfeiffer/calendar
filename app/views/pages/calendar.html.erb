@@ -1,5 +1,5 @@
 <h2> Your Calendar </h2>
-<h3> Date: <%= @month.beginning_date.to_s %> - <%= @month.end_date.to_s %> </h3>
+<h3> Month: <%= @month.beginning_date.to_s %> - <%= @month.end_date.to_s %> </h3>
 
 <%= link_to 'Previous Month', calendar_path(:month => @previous_month.month, :year => @previous_month.year), class: 'month'%>
 <%= link_to 'Current Month', calendar_path, class: 'month' %>
@@ -7,34 +7,35 @@
 <%= link_to 'Sign Out', root_path, class: 'sign_out' %>
 
 <table id = 'day_names'>
-    <th> Mon </th>
-    <th> Tues </th>
-    <th> Wed </th>
-    <th> Thurs </th>
-    <th> Fri </th>
-    <th> Sat </th>
-    <th> Sun </th>
+  <th> Mon </th>
+  <th> Tues </th>
+  <th> Wed </th>
+  <th> Thurs </th>
+  <th> Fri </th>
+  <th> Sat </th>
+  <th> Sun </th>
 </table>
 
 <table>
-
-    <% @month.weeks.each do |week| %>
-      <tr>
-        <% week.days.each do |day| %>
-            <%- events = @current_user.calendar_days.where(:event_date => day) %>
-            <td class = <%= active_day?(day)%>>
-            <%= day.to_s %>
-            <ul>
-                <%- events.each do |event| %>
-                    <li class = <%= rated(event.rate) %>>
-                        <%= link_to event.title, calendar_day_path(event.id), id: 'title' %>
-                        <%= event.rate %>
-                        <%= link_to 'X', calendar_day_path(event.id), method: :delete, class: 'delete' %>
-                    </li>
-                <% end %>
-            </ul>
-            <%= link_to 'Edit Day', edit_calendar_day_path(day), class: 'edit_day'%>
-          </td>
+  <% @month.weeks.each do |week| %>
+    <tr>
+      <% week.days.each do |day| %>
+        <%- events = @current_user.calendar_days.where(:event_date => day) %>
+        <td class = <%= active_day?(day)%>, id = 'calendar_date'>
+           <%= day.to_s %>
+        <ul class = 'event_info'>
+          <%- events.each do |event| %>
+          <li class = <%= rated(event.rate) %>>
+            <%= link_to event.title + '(info:)', calendar_day_path(event.id), id: 'title' %>
+               <%= event.rate %>
+               <%= link_to 'X', calendar_day_path(event.id), method: :delete, class: 'delete' %>
+               <%= link_to 'Edit Day', edit_calendar_day_path(day), class: 'edit_link'%>
+          </li>
+          <% end %>
+        </ul>
+          <ul class= 'edit_link'> <%= link_to 'New Day', new_calendar_day_path(day), class: 'edit_day'%> </ul>
+          <%= link_to 'Edit Day', edit_calendar_day_path(day), class: 'edit_link'%>
+        </td>
         <% end %>
       </tr>
     <% end %>

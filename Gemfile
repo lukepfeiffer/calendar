@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.0.0'
 gem 'pg'
+gem 'haml-rails'
 gem 'pry-rails'
 gem 'authem'
 gem 'sass-rails', '~> 4.0.0'

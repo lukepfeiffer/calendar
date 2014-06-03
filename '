@@ -161,12 +161,7 @@ p{
 }
 
 .show_p{
-  background-color: #073482;
-  border: 1 solid black;
-  border-radius: 3px;
-  color: #fff;
-  width: 70px;
-  text-align: center;
+
 }
 
 .show{
