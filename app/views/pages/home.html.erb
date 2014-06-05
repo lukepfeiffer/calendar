@@ -1,7 +1,7 @@
 <div class = 'form_container'>
+  <div class = 'home'> Sign Up </div>
   <%= form_for(@user) do |f| %>
 
-    <h1> Sign Up </h1>
 
       <%= f.label :email %>
       <%= f.text_field :email ,  placeholder: "Email" , class: "field" %>
@@ -15,14 +15,12 @@
       <%= f.submit :submit , class: "submit" %>
 
   <% end %>
-
+  <div class = 'home'> Sign In </div>
   <%= form_tag(sessions_path) do %>
 
-    <h1> Sign In </h1>
     <%= text_field_tag :email , nil ,placeholder: "Email" , class: "field" %>
     <%= password_field_tag :password , nil , placeholder: "Password" ,class: "field"  %>
     <%= submit_tag 'Sign In', class: 'submit' %>
-
 
   <% end %>
 </div>

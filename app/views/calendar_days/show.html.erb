@@ -1,14 +1,12 @@
-<form class = 'show_page'>
+<form class = 'form_container'>
   <p class = 'show_p', id = 'calendar_date'> <%= @calendar_day.event_date %> </p>
   <div class = 'show <%= rated(@calendar_day.rate)%>', id = 'show_div'>
-    <ul>
-      <p> <%= @calendar_day.title %> </p>
-      <p> Rate:  <%= @calendar_day.rate %> </p>
-    </ul>
+    <div class = 'show_div'>
+      <p> <%= @calendar_day.title %> <span class = 'show_rate'> <%= @calendar_day.rate %> </span> </p>
+      <div class = 'description'>
+        <%= @calendar_day.description %>
+      </div>
+    </div>
   </div>
-
-  <h2 class = 'description'>
-    <%= @calendar_day.description %>
-  </h2>
     <%= link_to 'Return to Calendar', calendar_path, class: 'description' %>
 </form

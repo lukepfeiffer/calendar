@@ -21,9 +21,9 @@ td{
   font-size: 15px;
   text-decoration: underline;
   color: #145ECC;
-  padding: 30px;
   cursor: pointer;
   vertical-align: top;
+  margin:0 3px 0 0;
 }
 
 th{
@@ -36,19 +36,20 @@ h1{
   font-family: arial;
   font-size: 50px;
   padding-left: 20px;
-}
-
-h2{
-  padding:0 0 0 20px;
-}
-
-h3{
-  text-align: center;
-  background-color: #67a2d4;
-  border: 1px solid black;
+  width: 400px;
+  color: #0a0a05;
   border-radius: 4px;
+  background-color: #bdb36c;
+  margin: 0;
+}
+
+.current_month{
+  text-align: left;
+  background-color: #67a2d4;
+  border-radius: 4px;
+  margin: 3px  0;
+  padding: 2px 10px;
   width: 270px;
-  margin: 10px;
 }
 
 form{
@@ -66,7 +67,9 @@ p{
 }
 
 .field_with_errors{
-  color: #1ae0e0;
+  color: #de0000;
+  font-weight: bold;
+  text-decoration: underline;
 }
 
 .sign_out{
@@ -88,23 +91,28 @@ p{
 }
 
 .good{
-  color: #F5FC41;
+  color: #006915;
 }
 
 .okay{
-  color: #306BF3;
+  color: #0042b5;
 }
 
 .bad{
-  color: red;
+  color: #a60013;
 }
 
 .form_container{
-  margin: 10px;
-  border: 1px solid #6c7171;
+  margin:  4px 0 0 0;
   border-radius: 7px;
   background: url('/assets/Calendar.jpg') no-repeat;
   width: 50%;
+  padding: 0 0 10px 0;
+}
+
+.home{
+  font-size: 30px;
+  padding: 0 10px;
 }
 
 .submit{
@@ -124,6 +132,16 @@ p{
   padding: 5px;
 }
 
+.area{
+  border-radius: 6px;
+  font-size: 21px;
+  font-family: arial;
+  border: solid gray 1px;
+  display: list-item;
+  padding: 5px;
+
+}
+
 .active{
   background: #888;
 }
@@ -140,20 +158,12 @@ p{
 .delete{
   color: #d70500;
   text-decoration: none;
+  font-size: 15px;
 }
 
-.edit_day{
-  padding: 0;
-  font-size: 11px;
-  text-decoration: none;
-}
-
-.show_page{
-  border: solid black 1px;
-  border-radius: 5px;
-  width: 50%;
-  background: url('/assets/Calendar.jpg') no-repeat;
-  padding: 0 0 0 0px;
+.event_h2{
+  font-size: 29px;
+  margin: 9px 0;
 }
 
 .event_info{
@@ -162,19 +172,36 @@ p{
 
 .show_p{
   background-color: #073482;
-  border: 1 solid black;
+  border: 1px solid black;
   border-radius: 3px;
   color: #fff;
   width: 70px;
   text-align: center;
 }
 
+.show_div{
+  margin: 0;
+  padding: 9px;
+  border-radius: 4px;
+  background-color: #ccc;
+}
+
 .show{
   font-size: 40px;
+  width: 400px;
+  border-radius: 4px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .description{
   padding: 0 0 0 25px;
+  font-size: 23px;
+}
+
+.show_rate{
+  border: 1px solid black;
+  border-radius: 3px;
 }
 
 #title{

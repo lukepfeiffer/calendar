@@ -1,11 +1,11 @@
 class CalendarDaysController < ApplicationController
+
   def new
-    @calendar_day = find_calendar_day
+    @calendar_day = CalendarDay.new
   end
 
   def create
-   @calendar_day =  current_user.calendar_days.build(calendar_day_params)
-   if @calendar_day.save
+   if current_user.calendar_days.create(calendar_day_params)
      redirect_to calendar_path
    else
      render 'calendar_days/new'

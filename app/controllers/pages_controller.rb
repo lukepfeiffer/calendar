@@ -5,7 +5,6 @@ class PagesController < ApplicationController
 
 
   def calendar
-    @current_user = current_user
     @active_month = active_day.month
     @active_day = active_day
     @month =  Month.new(@active_day)
